@@ -20,7 +20,7 @@ For example: an autoresponder got opened 100 times in calendar week 10 and opene
 
 The report will look similar to this example:
 
-!mailchimp_export_screenshot1.png!
+![mailchimp-autoresponder-reports example export](mailchimp_export_screenshot1.png?raw=true "mailchimp-autoresponder-reports example export")
 
 ## Installation
 
