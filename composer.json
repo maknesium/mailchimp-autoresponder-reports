@@ -1,0 +1,6 @@
+{
+    "require": {
+        "craigballinger/mailchimp-api-php" : "dev-master",
+        "PHPOffice/PHPExcel" : "dev-master"
+    }
+}
