@@ -64,4 +64,4 @@ Simply call the url <code>http://www.yourdomain.com/mailchimp/index.php/mcreport
 
 The report will look similar to this example:
 
-!mailchimp_export_screenshot1.png!
+![mailchimp-autoresponder-reports example export](mailchimp_export_screenshot1.png?raw=true "mailchimp-autoresponder-reports example export")
