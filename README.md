@@ -87,12 +87,11 @@ On Unix/Linux based systems, you'd use cron to execute the database update. Our 
 
 Please follow this guide to install mailchimp-autoresponder-reports on a fresh installation of Ubuntu 14.04.3. All steps in this guide are shown in the following video:
 
-
 1. Make sure your current Ubuntu machine is up to date and install all the latest updates:
 
-<code>
+<pre><code>
 sudo apt-get update; sudo apt-get upgrade; sudo apt-get dist-upgrade; sudo apt-get clean all; sudo apt-get --purge autoremove;
-</code>
+</code></pre>
 
 2. Now install all dependencies necessary (OpenSSH, LAMP Server, git, wget, curl)
 
