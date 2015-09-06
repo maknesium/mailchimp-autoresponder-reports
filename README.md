@@ -78,11 +78,10 @@ After you have obtained the API key from Mailchimp, you have to enter it into th
 
 On Unix/Linux based systems, you'd use cron to execute the database update. Our interval should be once a week (like every sunday night at 23:55h or 11.55pm).
 
-<pre><code>
+<code>
 55 23 * * 0 wget -q --spider http://www.yourdomain.com/mailchimp/index.php/mcreports/updatedb
-</code></pre>
+</code>
 
-asdf
 
 ### Installation guide for Ubuntu 14.04.3 server
 
