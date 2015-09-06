@@ -89,9 +89,9 @@ Please follow this guide to install mailchimp-autoresponder-reports on a fresh i
 
 1. Make sure your current Ubuntu machine is up to date and install all the latest updates:
 
-<pre><code>
+<code>
 sudo apt-get update; sudo apt-get upgrade; sudo apt-get dist-upgrade; sudo apt-get clean all; sudo apt-get --purge autoremove;
-</code></pre>
+</code>
 
 2. Now install all dependencies necessary (OpenSSH, LAMP Server, git, wget, curl)
 
@@ -218,9 +218,9 @@ crontab -e
 
 and put this line at the bottom of the file:
 
-<pre><code>
+<code>
 55 23 * * 0 wget -q --spider http://localhost/mailchimp/index.php/mcreports/updatedb
-</code></pre>
+</code>
 
 
 # Finally! - Get your report
