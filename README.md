@@ -82,6 +82,7 @@ On Unix/Linux based systems, you'd use cron to execute the database update. Our 
 55 23 * * 0 wget -q --spider http://www.yourdomain.com/mailchimp/index.php/mcreports/updatedb
 </code></pre>
 
+asdf
 
 ### Installation guide for Ubuntu 14.04.3 server
 
@@ -218,9 +219,10 @@ crontab -e
 
 and put this line at the bottom of the file:
 
-<code>
+<pre><code>
 55 23 * * 0 wget -q --spider http://localhost/mailchimp/index.php/mcreports/updatedb
-</code>
+</code></pre>
+
 
 # Finally! - Get your report
 
