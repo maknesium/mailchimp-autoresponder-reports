@@ -372,7 +372,7 @@ $config['Mailchimp_API_KEY'] = 'put_your_API_key_here';
 //configuration of metadata for exported excel file
 $config['Excel_creator'] = 'mailchimp-autoresponder-reports';
 $config['Excel_lastmodifiedBy'] = 'mailchimp-autoresponder-reports';
-$config['Excel_title'] = 'mailchimp-autoresponder-reports Export';
+$config['Excel_title'] = 'mailchimp-reports';
 $config['Excel_subject'] = '';
 $config['Excel_description'] = '';
 $config['Excel_keywords'] = '';

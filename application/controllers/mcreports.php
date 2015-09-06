@@ -25,7 +25,7 @@ class Mcreports extends CI_Controller {
         $mcApiKey = $this->config->item('Mailchimp_API_KEY');
         $mc = new Mailchimp\Client($mcApiKey);
 
-	//todo make limit dynamic instead of 1000
+	    //todo make limit dynamic instead of 1000
         $result = $mc->campaigns->listing(array(),0,1000, "title");
         // convert stdClass to array
         $resultAR = $this->objectToArray($result);
