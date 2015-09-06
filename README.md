@@ -87,7 +87,7 @@ On Unix/Linux based systems, you'd use cron to execute the database update. Our 
 
 Please follow this guide to install mailchimp-autoresponder-reports on a fresh installation of Ubuntu 14.04.3. You will be prompted for your root / user password several times.
 
-1. Make sure your current Ubuntu machine is up to date and install all the latest updates:
+1. Make sure your current Ubuntu machine is up to date and install all the latest updates. The following one-liner will just update your installation:
 
 ```
 sudo apt-get update; sudo apt-get upgrade; sudo apt-get dist-upgrade; sudo apt-get clean all; sudo apt-get --purge autoremove;
@@ -95,40 +95,40 @@ sudo apt-get update; sudo apt-get upgrade; sudo apt-get dist-upgrade; sudo apt-g
 
 2. Now install all dependencies necessary (OpenSSH, LAMP Server, git, wget, curl)
 
-<code>
+```
 sudo apt-get install apache2 libapache2-mod-php5 php5 php5-mysql php5-curl mysql-server git wget curl
-</code>
+```
 
 3. Get the sourcecode from github. I assume you install mailchimp-autoresponder-reports within your home directory.
 
-<code>
+```
 cd ~
 git clone https://github.com/maknesium/mailchimp-autoresponder-reports.git
-</code>
+```
 
 4. Now, download the dependencies for mailchimp-autoresponder-reports (Mailchimp PHP API and PHPoffice)
 
-<code>
+```
 cd ~/mailchimp-autoresponder-reports/vendor
 mkdir craigballinger
 cd craigballinger
 git clone https://github.com/craigballinger/mailchimp-api-php.git
-</code>
+```
 
-<code>
+```
 cd ~/mailchimp-autoresponder-reports/vendor
 mkdir phpoffice
 cd phpoffice
 git clone https://github.com/PHPOffice/PHPExcel.git
 mv PHPExcel/ phpexcel
-</code>
+```
 
 5. We have to setup the basic MySQL database now....
 
-<code>
+```
 mysql -u root -p
 (enter your mysql root password)
-</code>
+```
 
 ...and when you're promted by the <code>mysql></code> promt now, you have to create a new database and a new database user by typing in the following statements:
 
@@ -144,65 +144,65 @@ Note that we set the database name to **mailchimp_db**, the database user to **m
 
 6. We now have to import the SQL database script in order to have the database structure setup correctly.
 
-<code>
+```
 cd ~/mailchimp-autoresponder-reports
 mysql -u mailchimp -p mailchimp_db < init_database.sql
 (enter mailchimp user password)
-</code>
+```
 
 And verify that things worked:
 
-<pre>
+```
 mysql -u mailchimp -p mailchimp_db
 (enter mailchimp user password)
-</pre>
+```
 
 and when you see the <code>mysql></code> prompt then enter the following command which should show the imported database structure:
 
-<code>
+```
 SHOW CREATE TABLE mcdata;
 exit;
-</code>
+```
 
 7. We're now proceeding to the configuration of the application.
 
-<code>
+```
 nano mailchimp-autoresponder-reports/application/config/database.php
-</code>
+```
 
 and enter your database settings accordingly:
 
-<code>
+```
 $db['development']['username'] = 'mailchimp';
 $db['development']['password'] = 'mailchimp';
 $db['development']['database'] = 'mailchimp_db';
-</code>
+```
 
 Now we have to set the Mailchimp API key. They key can be obtained from within the mailchimp settings as decribed here in section "Find or Generate Your API Key": http://kb.mailchimp.com/accounts/management/about-api-keys
 
 When you got your key, save it inside the configuration file as described here:
 
-<code>
+```
 nano mailchimp-autoresponder-reports/application/config/config.php
-</code>
+```
 
 And paste your key inside this value. It should look similar to this:
 
-<code>                          
+```                          
 $config['Mailchimp_API_KEY'] = '123456789123456789abcdefghijklmn-us7';
-</code>
+```
 
 8. Now, we need to link the mailchimp-autoresponder-application to the web server
 
-<code>
+```
 sudo ln -sf /home/user/mailchimp-autoresponder-reports /var/www/html/mailchimp
-</code>
+```
 
 Just in case.... we restart the webserver to make sure everything is working to the latest configuration:
 
-<code>
+```
 sudo service apache2 restart
-</code>
+```
 
 You can now call from within a browser the two URLs:
 
@@ -213,15 +213,15 @@ You can now call from within a browser the two URLs:
 
 Open crontab with:
 
-<code>
+```
 crontab -e
-</code>
+```
 
 and put this line at the bottom of the file:
 
-<code>
+```
 55 23 * * 0 wget -q --spider http://localhost/mailchimp/index.php/mcreports/updatedb
-</code>
+```
 
 
 # Finally! - Get your report
