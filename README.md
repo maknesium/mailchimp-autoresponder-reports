@@ -85,13 +85,13 @@ On Unix/Linux based systems, you'd use cron to execute the database update. Our 
 
 ### Installation guide for Ubuntu 14.04.3 server
 
-Please follow this guide to install mailchimp-autoresponder-reports on a fresh installation of Ubuntu 14.04.3. All steps in this guide are shown in the following video:
+Please follow this guide to install mailchimp-autoresponder-reports on a fresh installation of Ubuntu 14.04.3. You will be prompted for your root / user password several times.
 
 1. Make sure your current Ubuntu machine is up to date and install all the latest updates:
 
-<code>
+```
 sudo apt-get update; sudo apt-get upgrade; sudo apt-get dist-upgrade; sudo apt-get clean all; sudo apt-get --purge autoremove;
-</code>
+```
 
 2. Now install all dependencies necessary (OpenSSH, LAMP Server, git, wget, curl)
 
@@ -99,23 +99,24 @@ sudo apt-get update; sudo apt-get upgrade; sudo apt-get dist-upgrade; sudo apt-g
 sudo apt-get install apache2 libapache2-mod-php5 php5 php5-mysql php5-curl mysql-server git wget curl
 </code>
 
-3. Get the sourcecode from github
+3. Get the sourcecode from github. I assume you install mailchimp-autoresponder-reports within your home directory.
 
 <code>
+cd ~
 git clone https://github.com/maknesium/mailchimp-autoresponder-reports.git
 </code>
 
 4. Now, download the dependencies for mailchimp-autoresponder-reports (Mailchimp PHP API and PHPoffice)
 
 <code>
-cd mailchimp-autoresponder-reports/vendor
+cd ~/mailchimp-autoresponder-reports/vendor
 mkdir craigballinger
 cd craigballinger
 git clone https://github.com/craigballinger/mailchimp-api-php.git
 </code>
 
 <code>
-cd mailchimp-autoresponder-reports/vendor
+cd ~/mailchimp-autoresponder-reports/vendor
 mkdir phpoffice
 cd phpoffice
 git clone https://github.com/PHPOffice/PHPExcel.git
@@ -129,15 +130,15 @@ mysql -u root -p
 (enter your mysql root password)
 </code>
 
-...and when you're promted by the <code>mysql></code> promt now, you have to create a new database and a new database user.
+...and when you're promted by the <code>mysql></code> promt now, you have to create a new database and a new database user by typing in the following statements:
 
-<code>
+```
 create database mailchimp_db;
 CREATE USER 'mailchimp'@'localhost' IDENTIFIED BY 'mailchimp';
 GRANT ALL PRIVILEGES ON mailchimp_db.* TO 'mailchimp'@'localhost';
 FLUSH PRIVILEGES;
 exit;
-</code>
+```
 
 Note that we set the database name to **mailchimp_db**, the database user to **mailchimp** with the password **mailchimp**. You SHOULD use your chosen password here! Don't go with the one from this tutorial! 
 
